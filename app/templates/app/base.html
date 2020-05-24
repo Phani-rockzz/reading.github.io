@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="{% static 'app/js/navbar.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'app/css/navbar.css' %}">
+
+
+
+
+</head>
+
+<body style="background-color:#5CDB95">
+
+   <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold">Transparent Nav</a>
+            <button type="button" data-toggle="collapse" data-target="#collapsibleNavbar"  class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+
+            <div id="collapsibleNavbar" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                    <li><a class="navbar-brand text-uppercase font-weight-bold"> Welcome : @{{ user.username }}</a></li>
+                    <li class="nav-item"><a href="{% url 'app:list' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-list-alt fa-lg"></i> List </a></li>
+                    <li class="nav-item"><a href="{% url 'app:reading' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-clipboard fa-lg"></i> reading </a></li>
+                     <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-sign-out fa-lg"></i> Logout </a></li>
+                    {% else %}
+                    <li class="nav-item"><a href="{% url 'app:home' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-home fa-lg"></i>  Home  </a></li>
+                    <li class="nav-item"><a href="{% url 'app:register' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-user-plus fa-lg"></i>  Register  </a></li>
+                    <li class="nav-item"><a href="{% url 'login' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-user fa-lg"></i>  Login  </a></li>
+
+                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-phone-square fa-lg"></i> Contact </a></li>
+                     {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+<div style="margin-top:100px"></div>
+
+
+
+
+
+<div class="container" style="color:#05386B " >
+    {% block content %}
+        {% endblock %}
+</div>
+
+<footer>
+
+</footer>
+
+</body>
+
+
+</html>

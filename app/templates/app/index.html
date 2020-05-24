@@ -1,0 +1,72 @@
+
+{% extends "app/base.html" %}
+
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+{% block content %}
+<p><a class="btn btn-primary" href="{% url 'login' %}">Login</a></p>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if registered %}
+<h1>Thank You, you have been Successfully Registered </h1>
+{% else %}
+
+ <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+
+    <div class="row">
+         <div class="col-md-8"> {{ user_form.username|as_crispy_field }}</div>
+     </div>
+     <div class="row">
+         <div class="col-md-8"> {{ user_form.email|as_crispy_field }}</div>
+     </div>
+     <div class="row">
+         <div class="col-md-8"> {{ user_form.password1|as_crispy_field }}</div>
+     </div>
+     <div class="row">
+         <div class="col-md-8"> {{ user_form.password2|as_crispy_field }}</div>
+     </div>
+
+      <div class="row">
+         <div class="col-md-8"> {{ profile_form.date_of_birth|as_crispy_field }}</div>
+     </div>
+      <div class="row">
+         <div class="col-md-8"> {{ profile_form.phone_number|as_crispy_field }}</div>
+     </div>
+      <div class="row">
+         <div class="col-md-8"> {{ profile_form.designation|as_crispy_field }}</div>
+     </div>
+      <div class="row">
+         <div class="col-md-8">   {{ profile_form.location|as_crispy_field }}</div>
+     </div>
+
+             <div class="col-md-5">
+            <div class="right">
+                <button class="btn btn-warning">Register</button>
+            </div>
+            </div>
+
+
+
+    </form>
+
+
+{% endif %}
+<script>
+    $(function () {
+        $('.datetime-input').datetimepicker({
+            format:'YYYY-MM-DD HH:mm:ss'
+        });
+    });
+</script>
+
+
+{% endblock %}
+
+

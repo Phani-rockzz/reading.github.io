@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="jumbotron">
+   <form method="post">
+    {% csrf_token %}
+    <h2>Are you sure you want to delete "{{ object.major }}" on dated {{ object.Date }} ?</h2>
+    <ul>
+        <p><li>Front Value is : <h4>{{ object.front }}</h4></li></p>
+        <p><li>Rear Value is : <h4>{{ object.rear_sill }}</h4></li></p>
+        <p><li>Driving Head is : <h4>{{ object.driving_head }}</h4></li></p>
+        <p><li>Discharge is : <h4>{{ object.discharge }}</h4></li></p>
+    </ul>
+     <input class="btn btn-danger" type="submit" value="Delete" /> &nbsp;&nbsp;
+    <a class="btn btn-warning" href="{% url 'app:list' %}">Back to list</a>
+ </form>
+</div>
+
+{% endblock %}

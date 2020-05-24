@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <form method="post">
+    {% csrf_token %}
+    <h2>Here is the list of "{{ object.major }}" dated on "{{ object.Date }}" .</h2>
+    <ul>
+        <p><li>Front Value is : <h3>{{ object.front }}</h3></li></p>
+        <p><li>Rear Value is :<h3> {{ object.rear_sill }}</h3> </li></p>
+        <p><li>Vent Value is : <h3>{{ object.vent }}</h3></li></p>
+        <p><li>Opening Value is : <h3> {{ object.opening }}</h3></li></p>
+        <p><li>Driving Head is : <h3> {{ object.driving_head }}</h3></li></p>
+        <p><li>Discharge is : <h3> {{ object.discharge }}</h3></li></p>
+        <p><li>Remarks : <h3> {{object.remarks }} </h3></li></p>
+
+    </ul>
+    <a class="btn btn-warning" href="{% url 'app:list' %}">Back to list</a>
+ </form>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+
+{% extends "app/base.html" %}
+
+
+{% block content %}
+<p>
+  <a class="btn btn-warning" href="{% url 'app:reading' %}">create</a>&nbsp;&nbsp;
+  <a class="btn btn-secondary" href="{% url 'app:list' %}">Refresh</a>
+ </p>
+<h1>welcome to list of readings</h1>
+<form method="post" action="{% url 'app:search' %}">
+    {% csrf_token %}
+
+  <div class="input-group col-md-5 mb-3">
+     <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+  </div>
+  <input type="date" class="form-control" name="search" placeholder="Search Date" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-danger" type="submit" id="button-addon2">Search</button>
+  </div>
+</div>
+
+
+
+
+</form>
+{% if messages %}
+<ul class="messages">
+  {% for item in messages %}
+  <li style="color:red">{{ item }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<div class="container">
+
+<table class="table table-bordered table-hover table-responsive" style="background-color:#DCDCDC">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Major</th>
+      <th scope="col">Front</th>
+      <th scope="col">Rear_sill</th>
+        <th scope="col">Vent</th>
+      <th scope="col">Opening</th>
+      <th scope="col">Driving_Head</th>
+      <th scope="col">Discharge</th>
+        <th scope="col">Remarks</th>
+      <th scope="col">View</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  {% if sr %}
+  {% for item in sr %}
+    <tbody>
+    <tr>
+
+      <td>{{ item.Date }}</td>
+        <td>{{ item.major }}</td>
+        <td>{{ item.front }}</td>
+        <td>{{ item.rear_sill }} </td>
+        <td>{{ item.vent }}</td>
+        <td>{{ item.opening }}</td>
+        <td>{{ item.driving_head }}</td>
+        <td>{{ item.discharge }}</td>
+        <td>{{ item.remarks }}</td>
+      <td><a href="{% url 'app:detail'  item.id %}">View</a></td>
+      <td><a href="{% url 'app:edit' item.id %}">edit</a></td>
+    <td><a href="{% url 'app:delete' item.id %}">delete</a></td>
+    </tr>
+    </tbody>
+  {% endfor %}
+  {% else %}
+    {% for item in data %}
+
+    <tbody>
+    <tr>
+
+      <td>{{ item.Date }}</td>
+        <td>{{ item.major }}</td>
+        <td>{{ item.front }}</td>
+        <td>{{ item.rear_sill }} </td>
+        <td>{{ item.vent }}</td>
+        <td>{{ item.opening }}</td>
+        <td>{{ item.driving_head }}</td>
+        <td>{{ item.discharge }}</td>
+        <td>{{ item.remarks }}</td>
+      <td><a href="{% url 'app:detail'  item.id %}">View</a></td>
+      <td><a href="{% url 'app:edit' item.id %}">edit</a></td>
+    <td><a href="{% url 'app:delete' item.id %}">delete</a></td>
+    </tr>
+    </tbody>
+
+    {% endfor %}
+  {% endif %}
+</table>
+
+</div>
+
+{%  endblock %}

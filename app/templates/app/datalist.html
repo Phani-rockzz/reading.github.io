@@ -1,0 +1,57 @@
+
+{% extends "app/base.html" %}
+
+
+{% block content %}
+<p><a class="btn btn-warning" href="{% url 'app:reading' %}">create</a></p>
+<h1>welcome to list of readings</h1>
+<form method="GET">
+  {% csrf_token %}
+  <input type="date" id="start" value="start" name="start" class="col-md-5"></br>
+  <input type="date" id="end" value="end" name="end" class="col-md-5"></br>
+  <a class="btn btn-primary" href="{% url 'app:datalist' %}">Submit</a></form>
+
+
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Major</th>
+      <th scope="col">Front</th>
+      <th scope="col">Rear_sill</th>
+        <th scope="col">Vent</th>
+      <th scope="col">Opening</th>
+      <th scope="col">Driving_Head</th>
+      <th scope="col">Discharge</th>
+        <th scope="col">Remarks</th>
+      <th scope="col">View</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+    {% for item in data %}
+    <tbody>
+    <tr>
+
+      <td>{{ item.Date }}</td>
+        <td>{{ item.major }}</td>
+        <td>{{ item.front }}</td>
+        <td>{{ item.rear_sill }} </td>
+        <td>{{ item.vent }}</td>
+        <td>{{ item.opening }}</td>
+        <td>{{ item.driving_head }}</td>
+        <td>{{ item.discharge }}</td>
+        <td>{{ item.remarks }}</td>
+      <td><a href="{% url 'app:detail'  item.id %}">View</a></td>
+      <td><a href="{% url 'app:edit' item.id %}">edit</a></td>
+    <td><a href="{% url 'app:delete' item.id %}">delete</a></td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+
+
+{%  endblock %}
