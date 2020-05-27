@@ -12,6 +12,10 @@ from django.contrib import messages
 # Create your views here.
 
 
+def contact(request):
+    return render(request, 'app/contact.html')
+
+
 def home(request):
     return render(request, 'app/home.html')
 

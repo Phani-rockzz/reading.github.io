@@ -1,0 +1,54 @@
+{% extends 'app/base.html' %}
+{% load static %}
+<!-- Font Awesome -->
+<link rel="stylesheet/less" type="text/css" href="styles.less" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+{% block content %}
+<!-- Card Wider -->
+
+
+<!-- Card Regular -->
+<div class="card card-cascade">
+
+  <!-- Card image -->
+  <div class="view view-cascade overlay">
+    <img class="card-img-top" src="{% static 'app/images/phani.jpg' %}" alt="Card image cap" style="height:500px;">
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>Phanindra Mekapotula</strong></h4>
+    <!-- Subtitle -->
+    <h6 class="font-weight-bold">Web developer</h6>
+    <!-- Text -->
+    <p class="card-text">
+         <address>
+                            6-601 ram nagar<br />
+                            Miryalaguda,Nalgonda(dist)<br />
+                            TS. 508207
+                        </address>
+                        <address>
+                            <span class="glyphicon glyphicon-phone-alt" style="font-size:24px"></span>  &nbsp; <abbr title="phone">+91 8008884315</abbr><br />
+                            <span class="glyphicon glyphicon-envelope" style="font-size:24px"></span>&nbsp;<a href="mailto:mekapotulaphani@gmail.com">mekapotulaphani@gmail.com</a>
+                        </address>.
+    </p>
+
+    <!-- Facebook -->
+    <a type="button" class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/phani.mekapotula/"><i class="fa fa-facebook fa-2x"></i></a>
+    <!-- Twitter -->
+    <a type="button" class="btn btn-social-icon btn-instagram" href="http://Instagram.com/phani_goud_7/"><i class="fa fa-instagram fa-2x"></i></a>
+    <!-- Google + -->
+    <a type="button" class="btn btn-social-icon btn-google" href="mailto:mekapotulaphani@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
+      <!-- github -->
+       <a type="button" class="btn btn-social-icon btn-google" href="https://github.com/Phani-rockzz"><i class="fa fa-github fa-2x"></i></a>
+
+  </div>
+
+</div>
+<!-- Card Regular -->
+{% endblock %}

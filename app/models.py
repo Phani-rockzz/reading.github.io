@@ -32,12 +32,12 @@ class Reading(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     Date = models.DateField()
     major = models.CharField(max_length=30, blank=False, null=False)
-    front = models.FloatField(blank=True, null=True)
-    rear_sill = models.FloatField(blank=True, null=True)
-    vent = models.FloatField(blank=True, null=True)
-    opening = models.FloatField(blank=True, null=True)
-    driving_head = models.DecimalField(max_digits=15, decimal_places=6, blank=True, null=True)
-    discharge = models.DecimalField(max_digits=15, decimal_places=6, blank=True, null=True)
+    front = models.FloatField(default=0, blank=True)
+    rear_sill = models.FloatField(default=0, blank=True)
+    vent = models.FloatField(default=0, blank=True)
+    opening = models.FloatField(default=0, blank=True)
+    driving_head = models.DecimalField(max_digits=15, decimal_places=6, blank=True, default=0)
+    discharge = models.DecimalField(max_digits=15, decimal_places=6, blank=True, default=0)
     remarks = models.CharField(max_length=30, blank=True, null=True)
 
     def save(self, *args, **kwargs):

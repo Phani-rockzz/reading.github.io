@@ -38,13 +38,14 @@
                     <li><a class="navbar-brand text-uppercase font-weight-bold"> Welcome : @{{ user.username }}</a></li>
                     <li class="nav-item"><a href="{% url 'app:list' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-list-alt fa-lg"></i> List </a></li>
                     <li class="nav-item"><a href="{% url 'app:reading' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-clipboard fa-lg"></i> reading </a></li>
+                    <li class="nav-item"><a href="{% url 'app:change_password' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-clipboard fa-lg"></i> Change Password </a></li>
                      <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-sign-out fa-lg"></i> Logout </a></li>
                     {% else %}
                     <li class="nav-item"><a href="{% url 'app:home' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-home fa-lg"></i>  Home  </a></li>
                     <li class="nav-item"><a href="{% url 'app:register' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-user-plus fa-lg"></i>  Register  </a></li>
                     <li class="nav-item"><a href="{% url 'login' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-user fa-lg"></i>  Login  </a></li>
 
-                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-phone-square fa-lg"></i> Contact </a></li>
+                    <li class="nav-item"><a href="{% url 'app:contact' %}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-phone-square fa-lg"></i> Contact </a></li>
                      {% endif %}
                 </ul>
             </div>

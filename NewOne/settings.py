@@ -28,6 +28,8 @@ SECRET_KEY = '0i$!$1sn3q(!2ltzz1(t7*z*1d9jrf^ca$i(9u8u!5%+7pkh(+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 ALLOWED_HOSTS = []
 
 
@@ -46,6 +48,14 @@ INSTALLED_APPS = [
 
 
 ]
+
+
+
+
+
+
+
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 BOOTSTRAP4 = {
